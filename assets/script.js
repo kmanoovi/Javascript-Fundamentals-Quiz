@@ -8,57 +8,57 @@ var score = localStorage.getItem("score");
 
 var questionsArray = [
     {
-        question: "Javascript is a dynamic scripting language that enhances the user experience. Yes or No.",
+        question: "What is Javascript?",
         options: [
-            "Yes",
-            "No",
-            "Maybe?",
-            "Definitely no"
+            "A type of coffee.",
+            "A way to enhance your css code.",
+            "A dynamic scripting language.",
+            "All the above."
         ],
-        correct: "Maybe?"
+        correct: "A dynamic scripting language.?"
     },
     {
         question: "You DO NOT use console logs to help explore your code. Yes or No.",
         options: [
-            "Yes",
-            "No",
-            "Maybe?",
-            "Definitely noooo"
+            "They help the developer explore their code.",
+            "It is not used in web development.",
+            "They are used only for CSS and HTML.",
+            "None of the above."
         ],
-        correct: "Yes"
+        correct: "They help the developer explore their code."
     },
     {
-        question: "An array is a variable with a list of values. Yes or No.",
+        question: "An array is a variable with a list of values.",
         options: [
-            "Yes",
-            "No",
-            "Maybe?",
-            "Definitely noooo"
+            "Yes.",
+            "No.",
+            "Sort of.",
+            "Definitely no."
         ],
-        correct: "Yes"
+        correct: "Yes."
     },
     {
-        question: "A 'for loop' executes a block of code so long as the condition of the statement is true. Yes or No.",
+        question: "A 'for loop' . Yes or No.",
         options: [
-            "Yes",
-            "No",
-            "Maybe?",
-            "Definitely noooo"
+            "A type of dance style.",
+            "A technique used to enhance HTML.",
+            "It executes a block of code so long as the condition of the statement is true.",
+            "All the above."
         ],
-        correct: "Yes"
+        correct: "It executes a block of code so long as the condition of the statement is true."
     },
     {
-        question: "The 'this' keyword is not confusing at all. Yes or No.",
+        question: "The 'this' keyword is not confusing at all.",
         options: [
-            "Yes",
-            "No",
+            "Yes.",
+            "No.",
             "Maybe?",
-            "Definitely noooo"
+            "Definitely."
         ],
         correct: "Yes"
     },
 ];
-var currentQuestion = 0;
+var currentQuestion = [];
 
 function generateQuiz() {
     console.log('inside generateQuiz function');
@@ -99,10 +99,10 @@ function saveLastScore(){
 }
 
 function gradeUserSelection(event) {
-    let thingThatWasClicked = event.target;
-    if(thingThatWasClicked.matches('button')) {
-        console.log(thingThatWasClicked);
-        var userSelection = thingThatWasClicked.textContent;
+    let btnClicked = event.target;
+    if(btnClicked.matches('button')) {
+        console.log(btnClicked);
+        var userSelection = btnClicked.textContent;
         console.log(userSelection);
         if(userSelection == questionsArray[currentQuestion].correct) {
             console.log('You selected correctly.');
@@ -140,8 +140,8 @@ saveLastScore();
 
 startBtn.addEventListener("click", generateQuiz);
 startBtn.addEventListener("click", beginTimer);
-mainEl.addEventListener("click", function(e) {
+mainEl.addEventListener("click", function(event) {
     console.log('You clicked somewhere in the main element');
     // run som other code here...
-    gradeUserSelection(e);
+    gradeUserSelection(event);
 })
