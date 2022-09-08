@@ -98,8 +98,8 @@ function saveLastScore(){
     localStorage.setItem("score", score);
 }
 
-function gradeUserSelection(e) {
-    let thingThatWasClicked = e.target;
+function gradeUserSelection(event) {
+    let thingThatWasClicked = event.target;
     if(thingThatWasClicked.matches('button')) {
         console.log(thingThatWasClicked);
         var userSelection = thingThatWasClicked.textContent;
