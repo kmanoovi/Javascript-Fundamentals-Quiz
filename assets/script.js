@@ -1,6 +1,6 @@
 var timeEl = document.querySelector (".time");
 var mainEl = document.getElementById("main");
-var secondsLeft = 5;
+var secondsLeft = 180;
 var startBtn = document.getElementById("start");
 var saveBtn = document.getElementById("save");
 var initials = localStorage.getItem("initials");
@@ -58,7 +58,7 @@ var questionsArray = [
         correct: "Yes"
     },
 ];
-var currentQuestion = [];
+var currentQuestion = 0;
 
 function generateQuiz() {
     console.log('inside generateQuiz function');
@@ -125,6 +125,7 @@ function beginTimer() {
             secondsLeft = 0;
             clearInterval(Interval);
             timeEl.textContent = "Times up! Your score is " + secondsLeft;
+            sendMessage("Your score is " + score);
             // run some code to display an input field, a submit button, etc
             // so the user can save their score to local storage.
         }
