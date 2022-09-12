@@ -5,7 +5,7 @@ var startBtn = document.getElementById("start");
 var saveBtn = document.getElementById("save");
 var initials = localStorage.getItem("initials");
 var score = localStorage.getItem("score");
-
+var message = "Click to start quiz!";
 var questionsArray = [
     {
         question: "What is Javascript?",
@@ -58,12 +58,11 @@ var questionsArray = [
         correct: "Yes"
     },
 ];
-var currentQuestion = 0;
+var currentQuestion = [0];
 
 function generateQuiz() {
     console.log('inside generateQuiz function');
-
-    var questionEl = document.createElement('h2');
+    var questionEl = document.createElement('start-quiz');
     questionEl.textContent = questionsArray[currentQuestion].question;
     mainEl.appendChild(questionEl);
     for(let i = 0; i < 4; i++) {
@@ -106,15 +105,18 @@ function gradeUserSelection(event) {
         console.log(userSelection);
         if(userSelection == questionsArray[currentQuestion].correct) {
             console.log('You selected correctly.');
-            // write code here to move on to the next question....
-            // maybe update currentQuestion variable?
-            // maybe clear out mainEl?
-            // maybe create more buttons, style them, etc.
-            // and add them to mainEl again
-        } else {
-
+        } else { (userSelection !== questionsArray[currentQuestion].correct)
+            console.log('You selected incorrectly.');
+            document.setTime.addEventListener('click', function()
+            {sec-=5});
+            startTimer();
+            loseTime.sendMessage('Wrong!');
         }
     }
+    var nextBtn = document.getElementById("next")(function() {
+        mainEl.textContent = nextBtn + ("Click to move on to next question!");
+        append.nextBtn(mainEl);
+    })
 }
 
 function beginTimer() {
@@ -126,8 +128,9 @@ function beginTimer() {
             clearInterval(Interval);
             timeEl.textContent = "Times up! Your score is " + secondsLeft;
             sendMessage("Your score is " + score);
-            // run some code to display an input field, a submit button, etc
-            // so the user can save their score to local storage.
+            var saveInitials = initials;
+            saveInitials.localStorage.setItem("initials", initials);
+            document.getElementById("save").value = "Submit Initials";
         }
     }, 1000)
 }
@@ -143,6 +146,5 @@ startBtn.addEventListener("click", generateQuiz);
 startBtn.addEventListener("click", beginTimer);
 mainEl.addEventListener("click", function(event) {
     console.log('You clicked somewhere in the main element');
-    // run som other code here...
     gradeUserSelection(event);
 })

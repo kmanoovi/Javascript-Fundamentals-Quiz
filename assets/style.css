@@ -15,11 +15,30 @@ body {
     background-color: aliceblue;
 }
 
+title {
+    font-size: 40px;
+}
+
 .option-styling {
-    background-color: rgb(81, 160, 199);
+    background-color: rgb(94, 34, 94);
+    color: white;
     width: 250px;
     height: 50px;
     font-size: 20px;
     font-style: bold;
     margin: 10px;
+}
+
+.nextBtn-styling {
+    background-color: yellow;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    font-style: bold;
+    margin: 10px;
+}
+
+.initials-styling {
+    background-color: white;
+    border: bold, 2px, black;
 }
